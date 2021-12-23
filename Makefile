@@ -13,6 +13,9 @@ docker-run: ## start the project and all its dependencies (require docker)
 docker-stop: ## stop services (require docker)
 	docker-compose stop
 
+docker-retart: ## restart services (require docker)
+	docker-compose stop && docker-compose up -d
+
 docker-shell: ## run an interactive shell in the api container (require docker)
 	docker-compose exec node /bin/bash
 
