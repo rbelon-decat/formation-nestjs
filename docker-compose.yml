@@ -20,9 +20,7 @@ services:
     volumes:
       - postgres:/data/postgres
     ports:
-      - '5432:5432'
-    networks:
-      - postgres
+      - 5432:5432
     restart: unless-stopped
   pgadmin:
     container_name: pgadmin_container
@@ -35,14 +33,6 @@ services:
       - pgadmin:/var/lib/pgadmin
     ports:
       - '${PGADMIN_PORT:-5050}:80'
-    networks:
-      - postgres
-    restart: unless-stopped
-
-networks:
-  postgres:
-    driver: bridge
-
 volumes:
   postgres:
   pgadmin:
