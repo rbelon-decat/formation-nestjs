@@ -11,14 +11,12 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
+# without Docker
 $ npm run start
 
-# watch mode
-$ npm run start:dev
+# with Docker (require make)
+$ make docker-run # It will automatically install dependencies
 
-# production mode
-$ npm run start:prod
 ```
 
 ## Test
@@ -27,22 +25,29 @@ $ npm run start:prod
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+## Before merging your PR
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Make sure you have runned the Prettier and your tests pass
 
-## Stay in touch
+```bash
+# Format your code
+$ npm run format
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# Docker aliad
+$ make docker-format
+```
+
+> For your tests, go to [#test](#test) section.
+
+## Docker commands
+
+You can find all the commands used here using the command 
+
+```bash
+$ make help
+```
 
 ## License
 
