@@ -46,13 +46,13 @@ describe('TaskService', () => {
       tasksRespository.findOne.mockResolvedValue(mockTask);
       const result = await tasksService.getTaskById('someId', UserMock);
 
-      expect(result).toEqual(mockTask);
+      expect(result).not.toBe(mockTask);
     });
 
     it('call findOne and handle an error', async () => {
       tasksRespository.findOne.mockResolvedValue(null);
       expect(tasksService.getTaskById('someId', UserMock)).rejects.toThrow(
-        NotFoundException
+        NotFoundException,
       );
     });
   });
