@@ -69,6 +69,9 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
+    - name: Checking code format
+      run: npm run check
+
     - name: Testing code
       run: npm test
 
