@@ -10,6 +10,6 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
   await app.listen(env.APP_PORT);
-  logger.log(`Application listening on port ${env.APP_PORT}`)
+  logger.log(`Application listening on port ${env.APP_PORT}`);
 }
 bootstrap();

@@ -21,8 +21,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           password: configService.get('DB_PASS'),
           port: parseInt(configService.get('DB_PORT')) || 5432,
           database: configService.get('DB_NAME'),
-        }
-      },      
+        };
+      },
     }),
     AuthModule,
   ],

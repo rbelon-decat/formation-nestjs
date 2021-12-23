@@ -30,12 +30,12 @@ export class TasksController {
   @Get()
   getTasks(
     @Query() filterDto: GetTasksFilterDto,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<Task[]> {
     this.logger.verbose(
       `User "${user.username}" retrieving all tasks. Filters: ${JSON.stringify(
-        filterDto
-      )}`
+        filterDto,
+      )}`,
     );
     return this.tasksService.getTasks(filterDto, user);
   }
@@ -48,7 +48,7 @@ export class TasksController {
   @Post()
   createTask(
     @Body() createTaskDto: CreateTaskDto,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<Task> {
     return this.tasksService.createTask(createTaskDto, user);
   }
@@ -57,7 +57,7 @@ export class TasksController {
   updateTask(
     @Param('id') id: string,
     @Body() updateTaskStatusDto: UpdateTaskStatusDto,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<Task> {
     const { status } = updateTaskStatusDto;
     return this.tasksService.updateTaskStatus(id, status, user);
@@ -66,7 +66,7 @@ export class TasksController {
   @Delete('/:id')
   deleteTask(
     @Param('id') id: string,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<DeleteResult> {
     return this.tasksService.deleteTask(id, user);
   }
