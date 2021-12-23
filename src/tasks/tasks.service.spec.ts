@@ -52,7 +52,7 @@ describe('TaskService', () => {
     it('call findOne and handle an error', async () => {
       tasksRespository.findOne.mockResolvedValue(null);
       expect(tasksService.getTaskById('someId', UserMock)).rejects.toThrow(
-        NotFoundException
+        NotFoundException,
       );
     });
   });
